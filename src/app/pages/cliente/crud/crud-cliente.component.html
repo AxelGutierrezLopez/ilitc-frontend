@@ -1,0 +1,194 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <h4 class="text-left" style="text-transform: uppercase;"><b>Mantenimiento de Cliente</b></h4>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div [formGroup]="clienteForm">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="row mb-4 mt-2">
+              <div class="col-md-4">
+                <label>Nombres: </label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" required
+                  maxlength="255">
+                <div class="alert alert-danger mt-2" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                  <div class="container-error-message" *ngIf="nombre.errors.required">
+                    (<b>Nombres</b> es requerido)
+                  </div>
+                  <div class="container-error-message" *ngIf="nombre.errors.maxlength">
+                    (<b>Nombres</b> tener como maximo 255 caracteres)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-4 mt-2">
+              <div class="col-md-4">
+                <label>Apellido Paterno: </label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno"
+                  formControlName="apellidopaterno" required maxlength="255">
+                <div class="alert alert-danger mt-2"
+                  *ngIf="apellidopaterno.invalid && (apellidopaterno.dirty || apellidopaterno.touched)">
+                  <div class="container-error-message" *ngIf="apellidopaterno.errors.required">
+                    (<b>Apellido Paterno</b> es requerido)
+                  </div>
+                  <div class="container-error-message" *ngIf="apellidopaterno.errors.maxlength">
+                    (<b>Apellido Paterno</b> tener como maximo 255 caracteres)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-4 mt-2">
+              <div class="col-md-4">
+                <label>Apellido Materno: </label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno"
+                  formControlName="apellidomaterno" required maxlength="255">
+                <div class="alert alert-danger mt-2"
+                  *ngIf="apellidomaterno.invalid && (apellidomaterno.dirty || apellidomaterno.touched)">
+                  <div class="container-error-message" *ngIf="apellidomaterno.errors.required">
+                    (<b>Apellido Materno</b> es requerido)
+                  </div>
+                  <div class="container-error-message" *ngIf="apellidomaterno.errors.maxlength">
+                    (<b>Apellido Materno</b> tener como maximo 255 caracteres)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-4 mt-2">
+              <div class="col-md-4">
+                <label>Sexo: </label>
+              </div>
+              <div class="col-md-8">
+                <select name="sexo" id="sexo" class="form-control" formControlName="sexo">
+                  <option [value]="sex.value" *ngFor="let sex of sexos">
+                    <td>{{ sex.nombre }}</td>
+                  </option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-5">
+
+            <div class="row mb-4 mt-2">
+              <div class="col-md-5">
+                <label>Fecha de Nacimiento: </label>
+              </div>
+              <div class="col-md-7">
+                <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento"
+                  formControlName="fechanacimiento" required>
+                <div class="alert alert-danger mt-2"
+                  *ngIf="fechanacimiento.invalid && (fechanacimiento.dirty || fechanacimiento.touched)">
+                  <div class="container-error-message" *ngIf="fechanacimiento.errors.required">
+                    (<b>Fecha de Nacimiento</b> es requerido)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-4 mt-2">
+              <div class="col-md-5">
+                <label>Dirección: </label>
+              </div>
+              <div class="col-md-7">
+                <input type="text" class="form-control" id="direccion" name="direccion" formControlName="direccion"
+                  required maxlength="255">
+                <div class="alert alert-danger mt-2"
+                  *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                  <div class="container-error-message" *ngIf="direccion.errors.required">
+                    (<b>Dirección</b> es requerido)
+                  </div>
+                  <div class="container-error-message" *ngIf="direccion.errors.maxlength">
+                    (<b>Dirección</b> tener como maximo 255 caracteres)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-4 mt-2">
+              <div class="col-md-5">
+                <label>Correo Electrónico: </label>
+              </div>
+              <div class="col-md-7">
+                <input type="email" class="form-control" id="correoelectronico" name="correoelectronico"
+                  formControlName="correoelectronico" required>
+                <div class="alert alert-danger mt-2"
+                  *ngIf="correoelectronico.invalid && (correoelectronico.dirty || correoelectronico.touched)">
+                  <div class="container-error-message" *ngIf="correoelectronico.errors.required">
+                    (<b>Correo Electrónico</b> es requerido)
+                  </div>
+                  <div class="container-error-message" *ngIf="correoelectronico.errors.maxlength">
+                    (<b>Correo Electrónico</b> tener como maximo 255 caracteres)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-2">
+
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-block btn-primary mb-1" [disabled]="!clienteForm.valid"
+                  (click)="create()">Registrar</button>
+              </div>
+              <!-- <div class="col-md-12">
+                <button class="btn btn-block btn-success mb-1">Actualizar</button>
+              </div> -->
+              <div class="col-md-12">
+                <button class="btn btn-block btn-danger mb-1" (click)="borrar()">Eliminar</button>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellido Paterno</th>
+        <th scope="col">Apellido Materno</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Correo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes" (click)="obtenercliente(cliente.id_cliente, cliente.nombre )">
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellidopaterno}}</td>
+        <td>{{cliente.apellidomaterno}}</td>
+        <td>{{cliente.fechanacimientotxt}}</td>
+        <td *ngIf="cliente.sexo == true">
+          Masculino
+        </td>
+        <td *ngIf="cliente.sexo == false" (>
+          Femenino
+        </td>
+        <td>{{cliente.direccion}}</td>
+        <td>{{cliente.correoelectronico}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
